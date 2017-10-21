@@ -1,0 +1,90 @@
+{% extends 'baseTemplate.twig' %}
+
+{% block title %}{{ titre is defined ? titre : "CG" }}{% endblock %}
+
+{# Petite bare de menu @TO CHANGE : ajouter les menus #}
+{% block header %}
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name"><h1><a href="#">Cover-Builder</a></h1></li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
+        <section class="top-bar-section">
+            <ul class="right">
+                <li><a href="/Cover-Builder/">Home</a></li>
+            </ul>
+        </section>
+    </nav>
+    <br>
+{% endblock %}
+
+{# espace input @TO CHANGE : ajouter les inputs necessaires #}
+{% block aside %}
+    <h3>Informations de la lettre</h3>
+    <hr>
+    <form action="/Cover-Builder/letter/save" method="post">
+        <label>Destinataire</label>
+        <input type="text" name="dest" required>
+        <label>Objet</label>
+        <input type="text" name="objet" required>
+        <label>Contenu</label>
+        <textarea name="content" rows="8" cols="80" required></textarea>
+        <label>Model</label>
+        <select name="template">
+            <option value="1" selected>Model 1</option>
+            <option value="2">Model 2</option>
+        </select><br>
+        <button type="submit" value="Enregistrer">Enregistrer</button>
+    </form>
+{% endblock %}
+
+{# Contenu de la page A4 @TO Modify : Mieux concevoir les templates #}
+{% block content %}
+<section id="A4">
+{# Si template (1 ou 2) choisie : Resultats lu dans la base de donnees @TO ADD : une petite touche du Jquery #}
+    {% if (letterList[0].template) == 2 %}
+        {% embed "horizontalTemplate.twig" %}
+            {% block sender %}
+                <div class="sender-box">
+                    {{userInfo[0].nom}} <br>
+                    {{userInfo[0].prenom}}
+                </div>
+            {% endblock %}
+            {% block receiver %}
+                <div class="receiver-box">
+                    A l'attention de <br>
+                    {{letterList[0].destinataire}}
+                </div>
+            {% endblock %}
+            {% block letterbody %}
+                <div class="letterbody-box">
+                    <h4>Objet : {{letterList[0].objet}}</h4>
+                    <br><br>
+                    {{letterList[0].content}}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+    {% if (letterList[0].template) == 1 %}
+        {% embed "verticalTemplate.twig" %}
+            {% block sender %}
+            {{userInfo[0].nom}} <br>
+            {{userInfo[0].prenom}}<br><br>
+            {% endblock %}
+            {% block receiver %}
+            <div class="receiver-box">
+                A l'attention de <br>
+                {{letterList[0].destinataire}}
+            </div>
+            {% endblock %}
+            {% block letterbody %}
+            <div class="letterbody-box">
+                <h4>Objet : {{letterList[0].objet}}</h4>
+                <br><br>
+                {{letterList[0].content}}
+            </div>
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+</section>
+{% endblock %}

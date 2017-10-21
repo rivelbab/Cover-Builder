@@ -1,0 +1,18 @@
+{# template illustratif @TO ADD: Mieux concevoir et designer les template #}
+<section>
+    <div class="row">
+        <div class="large-12 medium-12 columns">
+            {% block sender %}{% endblock %}
+        </div>
+        <div class="large-12 medium-12 columns vt">
+            {% block receiver %}{% endblock %}
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="large-12 medium-12 columns bvt">
+            {% block letterbody %}{% endblock %}
+        </div>
+    </div>
+</section>

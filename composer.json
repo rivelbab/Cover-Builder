@@ -1,0 +1,17 @@
+{
+    "name": "Cover-Builder",
+    "description": "",
+    "type": "",
+    "authors": [{
+        "name": "Rivel Babindamana",
+        "email": "rivelbab@gmail.com"
+    }],
+    "require": {
+        "twig/twig": "^1.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "libs/"
+        }
+    }
+}

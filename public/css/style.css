@@ -1,0 +1,91 @@
+body {
+  background: rgb(204,204,204);
+}
+
+#A4{
+    margin: 0 auto;
+    padding: 10px;
+    background: white;
+    display: block;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    height: 16cm;
+    /* Vrai dimmension du A4
+    width: 21cm;
+    height: 29.7cm;
+    */
+}
+
+@media print {
+  body, #A4 {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+.ht{
+    display: inline-block;
+    width: 45%;
+}
+.vt{
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+}
+.bvt{
+    text-align: justify;
+}
+.sender-box,.receiver-box, .letterbody-box{
+    display: block;
+    margin: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #7d7d7d;
+}
+.color-pink {
+    color: #f37074;
+}
+.color-white {
+    color: #fff;
+}
+.blue-btn {
+    background-color: #6cceec;
+}
+.blue-btn:hover {
+    background-color: #30B1D8;
+}
+button, .button {
+    margin: 0px;
+}
+.headings {
+    margin-bottom: 50px;
+}
+.border-right {
+    border-right: 1px solid #e1e1e1;
+}
+.border-bottom {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#intro {
+    width: 100%;
+    min-height: 400px;
+    padding: 40px;
+    background: url('/Cover-Builder/public/images/b3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#sign-up {
+    padding: 17px 30px 30px 30px;
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+#sign-up button {
+    width: 100%;
+}

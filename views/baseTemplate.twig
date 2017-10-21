@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>{% block title %}Cover-Builder{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    	<meta name="author" content="Rivel BABINDAMANA">
+    	<meta name="description" content="PHP POO MVC recrutement test by edithdigital">
+
+        {# -- favicon -- #}
+        <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/Cover-Builder/public/css/foundation.min.css" />
+        <link rel="stylesheet" href="/Cover-Builder/public/css/style.css"  />
+        {# -- Custom css block-- #}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {# -- Page header -- #}
+        {% block header %}{% endblock %}
+
+        <div class="row">
+            <div class="large-8 medium-8 columns">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="large-4 medium-4 columns">
+                <aside>
+                    {% block aside %}{% endblock %}
+                </aside>
+            </div>
+        </div>
+        {# -- Page footer-- #}
+        {% block footer %}{% endblock %}
+
+        <script src="/Cover-Builder/public/js/jquery.js"></script>
+        <script src="/Cover-Builder/public/js/foundation.min.js"></script>
+        <script src="/Cover-Builder/public/js/modernizr.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

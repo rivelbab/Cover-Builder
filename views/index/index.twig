@@ -1,0 +1,36 @@
+{% extends 'baseTemplate.twig' %}
+
+{# Titre de la page #}
+{% block title %}{{ titre is defined ? titre : "CG" }}{% endblock %}
+
+{# Header et navbar #}
+{% block header %}
+    <div id="intro">
+        <div class="row">
+            <div class="large-6 medium-6 columns">
+                <b class="color-white">Cover Generator</b><br><br>
+                <h3 class="color-white">
+                    Editez vos lettres de motivations plus facilement, plus rapidement.
+                </h3>
+                <h6 class="color-white" style="line-height: 27px;">
+                    Pour cela, rien de plus simple. connectez-vous à votre compte et
+                    choisissez le model de votre de choix.
+                </h6>
+            </div>
+            <div class="large-6 medium-6 columns">
+                <div id="sign-up">
+                    <h3 class="color-pink">Connexion</h3>
+                    <hr/>
+                    <form action="/Cover-Builder/login/run" method="post">
+                        <label>Nom</label>
+                        <input id="Text1" type="text" name="nom" placeholder="Edouard"/>
+                        <label>Prenom</label>
+                        <input id="Text2" type="text" name="prenom" placeholder="Felix"/>
+                        <button class="blue-btn" type="submit" value="Connexion">Connexion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{# pas de body, rien n'a y mettre pour l'instant #}
